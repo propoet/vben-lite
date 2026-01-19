@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
+import { isDarkColor, isLightColor, convertToHsl, convertToHslCssVar, convertToRgb, isValidColor, generatorColorVariables } from '#/shared/color'
+
 
 // const isDark = ref(false)
 // const toggleDark = () => {
@@ -11,6 +13,20 @@ const isDark = useDark({
 })
 
 const toggleDark = useToggle(isDark)
+
+console.log('isDarkColor',isDarkColor('#000'))
+console.log('isLightColor',isLightColor('#fff'))
+
+console.log('convertToHsl',convertToHsl('#000'))
+console.log('convertToHslCssVar',convertToHslCssVar('#000'))
+console.log('convertToRgb',convertToRgb('#000'))
+console.log('isValidColor',isValidColor('#000'))
+
+console.log('generatorColorVariables',generatorColorVariables([{
+  color: '#ff0000',
+  name: 'primary',
+  alias: 'danger'
+}]))
 </script>
 
 <template>
