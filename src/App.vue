@@ -5,7 +5,7 @@
 
 <template>
   <div class="app">
-    <h1>Vben Lite</h1>
+    <h1 class="text-3xl font-bold underline">Vben Lite</h1>
   </div>
 </template>
 
