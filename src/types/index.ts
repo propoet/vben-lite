@@ -13,6 +13,6 @@ export interface BasicOptions {
   label: string
   value: string | number | boolean
 }
-/**可记录类型,定义一个键为字符胡灿,值为类型T的对象类型 */
+/**可记录类型,定义一个键为字符串,值为类型T的对象类型 */
 
 export type Recordable<T = any> = Record<string, T>
