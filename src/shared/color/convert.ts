@@ -1,16 +1,16 @@
-import { TinyColor } from '@ctrl/tinycolor';
+import { TinyColor } from '@ctrl/tinycolor'
 
 /**
  * 将颜色转为HSL格式
  * HSL 是一种颜色模型，包括色相(Hue)、饱和度(Saturation)和亮度(Lightness)三个部分。
- *  
+ *
  */
-function convertToHsl(color:string):string {
-  const { a, h, l, s } = new TinyColor(color).toHsl();
+function convertToHsl(color: string): string {
+  const { a, h, l, s } = new TinyColor(color).toHsl()
   // 将色相、饱和度和亮度转换为整数，并格式化为CSS格式
-  const hsl = `hsl(${Math.round(h)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%)`;
+  const hsl = `hsl(${Math.round(h)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%)`
   // 如果颜色有透明度，则添加透明度
-  return a < 1 ? `${hsl} ${a}` : hsl;
+  return a < 1 ? `${hsl} ${a}` : hsl
 }
 /**
  * 将颜色转换为HSL CSS变量。
@@ -22,9 +22,9 @@ function convertToHsl(color:string):string {
  * @returns {string} 可以作为CSS变量使用的HSL格式的颜色字符串。
  */
 function convertToHslCssVar(color: string): string {
-  const { a, h, l, s } = new TinyColor(color).toHsl();
-  const hsl = `${Math.round(h)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%`;
-  return a < 1 ? `${hsl} / ${a}` : hsl;
+  const { a, h, l, s } = new TinyColor(color).toHsl()
+  const hsl = `${Math.round(h)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%`
+  return a < 1 ? `${hsl} / ${a}` : hsl
 }
 /**
  * 将颜色转换为RGB颜色字符串
@@ -35,7 +35,7 @@ function convertToHslCssVar(color: string): string {
  * @returns 如果颜色值有效，则返回对应的RGB颜色字符串；如果无效，则返回rgb(0, 0, 0)
  */
 function convertToRgb(str: string): string {
-  return new TinyColor(str.replace(/deg|grad|rad|turn/g, '')).toRgbString();
+  return new TinyColor(str.replace(/deg|grad|rad|turn/g, '')).toRgbString()
 }
 /**
  * 检查颜色是否有效
@@ -44,8 +44,8 @@ function convertToRgb(str: string): string {
  */
 function isValidColor(color?: string) {
   if (!color) {
-    return false;
+    return false
   }
-  return new TinyColor(color).isValid;
+  return new TinyColor(color).isValid
 }
-export { convertToHsl, convertToHslCssVar, convertToRgb, isValidColor,TinyColor };
+export { convertToHsl, convertToHslCssVar, convertToRgb, isValidColor, TinyColor }

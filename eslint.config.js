@@ -19,7 +19,8 @@ export default defineConfigWithVueTs(
   // rules 必须放在对象中,否则会报错
   {
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off'
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unsafe-function-type': 'off'
     }
   }
 )

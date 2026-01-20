@@ -1,1 +1,1 @@
-export const APP_NAME = 'Vben Lite'
+export const APP_NAME = 'demo'

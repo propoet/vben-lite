@@ -21,6 +21,7 @@
     "defu": "^6.1.4",
     "es-toolkit": "^1.44.0",
     "lodash.clonedeep": "^4.5.0",
+    "nprogress": "^0.2.0",
     "pinia": "^3.0.4",
     "pinia-plugin-persistedstate": "^4.7.1",
     "tailwind-merge": "^3.4.0",

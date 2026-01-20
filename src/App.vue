@@ -1,40 +1,29 @@
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
-import { isDarkColor, isLightColor, convertToHsl, convertToHslCssVar, convertToRgb, isValidColor, generatorColorVariables } from '#/shared/color'
 
+import TestElementVisibleRect from '#/components/TestElementVisibleRect.vue'
 
-// const isDark = ref(false)
-// const toggleDark = () => {
-//   isDark.value = !isDark.value
-//   document.documentElement.classList.toggle('dark', isDark.value)
-// }
 const isDark = useDark({
   storageKey: 'theme'
 })
 
 const toggleDark = useToggle(isDark)
-
-console.log('isDarkColor',isDarkColor('#000'))
-console.log('isLightColor',isLightColor('#fff'))
-
-console.log('convertToHsl',convertToHsl('#000'))
-console.log('convertToHslCssVar',convertToHslCssVar('#000'))
-console.log('convertToRgb',convertToRgb('#000'))
-console.log('isValidColor',isValidColor('#000'))
-
-console.log('generatorColorVariables',generatorColorVariables([{
-  color: '#ff0000',
-  name: 'primary',
-  alias: 'danger'
-}]))
 </script>
 
 <template>
   <div class="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-4">
-    <h1 class="text-2xl font-bold">Vben Lite</h1>
-    <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded" @click="toggleDark()">
-      切换主题: {{ isDark ? '暗色' : '亮色' }}
-    </button>
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-bold">Vben Lite</h1>
+      <button
+        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+        @click="toggleDark()"
+      >
+        切换主题: {{ isDark ? '🌙 暗色' : '☀️ 亮色' }}
+      </button>
+    </div>
+
+    <!-- getElementVisibleRect 测试组件 -->
+    <TestElementVisibleRect />
   </div>
 </template>
 
