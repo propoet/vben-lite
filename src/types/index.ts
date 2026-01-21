@@ -16,3 +16,5 @@ export interface BasicOptions {
 /**可记录类型,定义一个键为字符串,值为类型T的对象类型 */
 
 export type Recordable<T = any> = Record<string, T>
+
+export type * from '#/preferences/types'
