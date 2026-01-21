@@ -218,7 +218,8 @@ function usePreferences() {
     locale,
     preferencesButtonPosition,
     sidebarCollapsed,
-    theme
+    theme,
+    preferences
   }
 }
 
