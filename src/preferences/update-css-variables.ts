@@ -26,7 +26,7 @@ function updateCSSVariables(preferences: Preferences) {
   if (Reflect.has(theme, 'builtinType')) {
     const rootTheme = root.dataset.theme
     if (rootTheme !== builtinType) {
-      root.dataset.theme = builtinType
+      root.dataset.theme = builtinType  // 例如：data-theme="default"
     }
   }
   // 获取当前的内置主题
@@ -41,6 +41,7 @@ function updateCSSVariables(preferences: Preferences) {
       ? currentBuiltType.darkPrimaryColor || currentBuiltType.primaryColor
       : currentBuiltType.primaryColor
     builtinTypeColorPrimary = color || currentBuiltType.color
+
   }
 
   // 如果内置主题颜色和自定义颜色都不存在，则不更新主题颜色
@@ -58,7 +59,7 @@ function updateCSSVariables(preferences: Preferences) {
       theme: {
         ...preferences.theme,
         // 如果用户没有自定义颜色，使用内置主题颜色
-        colorPrimary: theme.colorPrimary || builtinTypeColorPrimary || preferences.theme.colorPrimary
+        colorPrimary: builtinTypeColorPrimary||theme.colorPrimary   || preferences.theme.colorPrimary
       }
     }
 
@@ -111,6 +112,7 @@ function updateMainColorVariables(preference: Preferences) {
 function isDarkTheme(theme: string) {
   let dark = theme === 'dark'
   if (theme === 'auto') {
+    // 自动模式：跟随系统主题
     dark = window.matchMedia('(prefers-color-scheme: dark)').matches
   }
   return dark
