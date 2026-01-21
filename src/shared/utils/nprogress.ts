@@ -1,7 +1,7 @@
-import type NProgress from 'nprogress';
+import type NProgress from 'nprogress'
 
 // 创建一个NProgress实例的变量，初始值为null
-let nProgressInstance: null | typeof NProgress = null;
+let nProgressInstance: null | typeof NProgress = null
 
 /**
  * 动态加载NProgress库，并进行配置。
@@ -12,14 +12,14 @@ let nProgressInstance: null | typeof NProgress = null;
  */
 async function loadNprogress() {
   if (nProgressInstance) {
-    return nProgressInstance;
+    return nProgressInstance
   }
-  nProgressInstance = await import('nprogress');
+  nProgressInstance = await import('nprogress')
   nProgressInstance.configure({
     showSpinner: true,
-    speed: 300,
-  });
-  return nProgressInstance;
+    speed: 300
+  })
+  return nProgressInstance
 }
 
 /**
@@ -27,8 +27,8 @@ async function loadNprogress() {
  * 此函数首先加载NProgress库，然后调用NProgress的start方法开始显示进度条。
  */
 async function startProgress() {
-  const nprogress = await loadNprogress();
-  nprogress?.start();
+  const nprogress = await loadNprogress()
+  nprogress?.start()
 }
 
 /**
@@ -36,8 +36,8 @@ async function startProgress() {
  * 此函数首先加载NProgress库，然后调用NProgress的done方法停止并隐藏进度条。
  */
 async function stopProgress() {
-  const nprogress = await loadNprogress();
-  nprogress?.done();
+  const nprogress = await loadNprogress()
+  nprogress?.done()
 }
 
-export { startProgress, stopProgress };
+export { startProgress, stopProgress }

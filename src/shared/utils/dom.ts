@@ -3,7 +3,6 @@
  * 用于描述元素在视口中可见部分的边界框信息
  */
 
-
 export interface VisibleDomRect {
   /** 可见区域底部边界（相对于视口顶部的距离，单位：像素） */
   bottom: number
