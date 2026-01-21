@@ -7,7 +7,7 @@ pnpm exec tailwindcss init -p
 - -p生成postcss.config.js
 
 
-- 读取 D:\0propoet\project-ready\vben\vue-vben-admin下的vben 源码,完成以下任务:
+- 读取 *D:\0propoet\project-ready\vben\vue-vben-admin*下的vben 源码,完成以下任务:
 - 将过程写成一个完整文档, 包括代码/注释/原理/集成详细步骤/测试步骤 (只需要一个完整的文档, 文档太多太杂乱,不方便查看);
 - 如需生成example, 在当前项目example 下新建一个xx文件夹, 在这个文件夹下生成,文档放在./md 下;
 - 在一个基础的 vue3+vite 非monorepo 单体后端管理系统项目,要实现vben中的 "xxx" 的全部功能;
