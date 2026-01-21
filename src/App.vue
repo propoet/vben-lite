@@ -6,7 +6,7 @@ import TestSimpleColor from './components/test-simple-color.vue'
 
 <template>
   <TestDesignSystem />
-  <!-- <TestSimpleColor /> -->
+  <TestSimpleColor />
 </template>
 
 <style scoped></style>

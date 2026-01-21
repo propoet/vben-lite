@@ -59,7 +59,7 @@ function updateCSSVariables(preferences: Preferences) {
       theme: {
         ...preferences.theme,
         // 如果用户没有自定义颜色，使用内置主题颜色
-        colorPrimary: builtinTypeColorPrimary||theme.colorPrimary   || preferences.theme.colorPrimary
+        colorPrimary: builtinTypeColorPrimary||theme.colorPrimary || preferences.theme.colorPrimary
       }
     }
 

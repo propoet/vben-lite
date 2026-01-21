@@ -25,6 +25,18 @@ const { isDark, theme: currentTheme } = usePreferences()
         >
           Destructive
         </div>
+        <div class="p-4 rounded-lg bg-[hsl(var(--info))] text-[hsl(var(--info-foreground))]">
+          Info
+        </div>
+        <div class="p-4 rounded-lg bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))]">
+          Secondary
+        </div>
+        <div class="p-4 rounded-lg bg-[hsl(var(--accent))] text-[hsl(var(--accent-foreground))]">
+          Accent
+        </div>
+        <div class="p-4 rounded-lg bg-[hsl(var(--heavy))] text-[hsl(var(--heavy-foreground))]">
+          Heavy
+        </div>
       </div>
 
       <!-- 背景和前景色 -->
