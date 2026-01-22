@@ -24,7 +24,6 @@ class PreferenceManager {
   private state: Preferences
 
   constructor() {
-    debugger
     this.cache = new StorageManager()
     this.state = reactive<Preferences>(this.loadFromCache() || { ...defaultPreferences })
     this.debouncedSave = useDebounceFn((preference) => this.saveToCache(preference), 150)
@@ -58,7 +57,6 @@ class PreferenceManager {
    * @param options.overrides - 要覆盖的偏好设置
    */
   initPreferences = async ({ namespace, overrides }: InitialOptions) => {
-    debugger
     // 防止重复初始化
     if (this.isInitialized) {
       return
@@ -73,7 +71,6 @@ class PreferenceManager {
     // 加载缓存的偏好设置并与初始配置合并
     const cachedPreferences = this.loadFromCache() || {}
     const mergedPreference = merge({}, cachedPreferences, this.initialPreferences)
-    debugger
     // 更新偏好设置
     this.updatePreferences(mergedPreference)
 
@@ -124,7 +121,6 @@ class PreferenceManager {
     const { theme, app } = updates
   // 如果 theme 对象存在且有属性变化，或者有 fontSize 变化
     if (theme && (Object.keys(theme).length > 0 || Reflect.has(theme, 'fontSize'))) {
-      debugger
       updateCSSVariables(this.state)
     }
   // 处理颜色模式（灰色、色弱）

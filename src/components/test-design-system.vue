@@ -241,7 +241,7 @@ const colorVariables = [
             class="p-6 rounded-[var(--radius)] border border-[hsl(var(--border))] bg-[hsl(var(--card))]"
           >
             <h3 class="text-lg font-semibold mb-2">卡片 {{ i }}</h3>
-            <p class="text-[hsl(var(--muted-foreground))] text-sm">
+            <p class="text-[hsl(var(--card-foreground))] text-sm">
               这是一个使用设计系统变量的卡片示例，展示了背景色、边框色和圆角的使用。
             </p>
           </div>
