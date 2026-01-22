@@ -52,18 +52,8 @@ function updateCSSVariables(preferences: Preferences) {
     Reflect.has(theme, 'colorSuccess') ||
     Reflect.has(theme, 'colorWarning')
   ) {
-    // 如果用户没有自定义颜色，使用内置主题颜色
-    // 创建一个临时对象，将内置主题颜色传递给 updateMainColorVariables
-    const preferencesWithBuiltinColor: Preferences = {
-      ...preferences,
-      theme: {
-        ...preferences.theme,
-        // 如果用户没有自定义颜色，使用内置主题颜色
-        colorPrimary: builtinTypeColorPrimary||theme.colorPrimary || preferences.theme.colorPrimary
-      }
-    }
-
-    updateMainColorVariables(preferencesWithBuiltinColor)
+    // preferences.theme.colorPrimary = builtinTypeColorPrimary || colorPrimary;
+    updateMainColorVariables(preferences)
   }
   // 更新圆角
   if (Reflect.has(theme, 'radius')) {
