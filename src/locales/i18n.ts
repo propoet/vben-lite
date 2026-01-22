@@ -12,7 +12,6 @@ import { unref } from 'vue';
 import { createI18n } from 'vue-i18n';
 
 import { useSimpleLocale } from '#/shared/composables/use-simple-locale';
-
 /**
  * 创建 i18n 实例
  * - globalInjection: true - 启用全局注入，可以在模板中直接使用 $t
@@ -137,7 +136,6 @@ function loadLocalesMapFromDir(
       }
     }
   }
-
   // 第二步：为每种语言创建异步导入函数
   for (const [locale, files] of Object.entries(localesRaw)) {
     localesMap[locale] = async () => {
@@ -190,7 +188,7 @@ function setI18nLanguage(locale: Locale) {
  */
 async function setupI18n(app: App, options: LocaleSetupOptions = {}) {
   const { defaultLocale = 'zh-CN' } = options;
-  
+  debugger
   // 设置加载额外消息的函数
   // 可以用于加载第三方组件库的语言包（如 Element Plus、Dayjs）
   loadMessages = options.loadMessages || (async () => ({}));

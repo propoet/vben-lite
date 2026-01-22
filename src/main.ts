@@ -3,7 +3,6 @@ import './styles/index.css';
 import App from './App.vue';
 import { initPreferences } from './preferences';
 import { setupI18n } from './locales';
-
 /**
  * 应用初始化
  */

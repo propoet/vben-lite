@@ -7,7 +7,6 @@ import type { LocaleSetupOptions, SupportedLanguagesType } from './typing';
 import { ref } from 'vue';
 
 import {
-  $t,
   setupI18n as coreSetup,
   loadLocalesMapFromDir,
 } from './i18n';
@@ -181,7 +180,9 @@ async function setupI18n(app: App, options: LocaleSetupOptions = {}) {
   });
 }
 
-// 导出 $t 函数，用于模板和脚本中使用
+// 重新导出 $t 和 loadLocaleMessages（从 i18n.ts）
+export { $t, loadLocaleMessages } from './i18n';
+
 // 导出 elementLocale，用于 Element Plus 配置
 // 导出 setupI18n，用于应用初始化
-export { $t, elementLocale, setupI18n };
+export { elementLocale, setupI18n };
