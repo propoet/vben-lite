@@ -26,7 +26,7 @@ function updateCSSVariables(preferences: Preferences) {
   if (Reflect.has(theme, 'builtinType')) {
     const rootTheme = root.dataset.theme
     if (rootTheme !== builtinType) {
-      root.dataset.theme = builtinType  // 例如：data-theme="default"
+      root.dataset.theme = builtinType // 例如：data-theme="default"
     }
   }
   // 获取当前的内置主题
@@ -41,7 +41,6 @@ function updateCSSVariables(preferences: Preferences) {
       ? currentBuiltType.darkPrimaryColor || currentBuiltType.primaryColor
       : currentBuiltType.primaryColor
     builtinTypeColorPrimary = color || currentBuiltType.color
-
   }
 
   // 如果内置主题颜色和自定义颜色都不存在，则不更新主题颜色

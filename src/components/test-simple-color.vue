@@ -28,7 +28,9 @@ const { isDark, theme: currentTheme } = usePreferences()
         <div class="p-4 rounded-lg bg-[hsl(var(--info))] text-[hsl(var(--info-foreground))]">
           Info
         </div>
-        <div class="p-4 rounded-lg bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))]">
+        <div
+          class="p-4 rounded-lg bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))]"
+        >
           Secondary
         </div>
         <div class="p-4 rounded-lg bg-[hsl(var(--accent))] text-[hsl(var(--accent-foreground))]">

@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import TestDesignSystem from './components/test-design-system.vue'
 
-import TestSimpleColor from './components/test-simple-color.vue'
+// 在组件中测试
+import { $t } from '#/locales';
+import dayjs from 'dayjs';
+console.log(dayjs().format('YYYY年MM月DD日'));
+
+console.log($t('common.login'));
 </script>
 
 <template>

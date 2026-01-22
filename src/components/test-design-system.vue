@@ -33,17 +33,17 @@ const toggleThemeMode = (mode: ThemeModeType) => {
 const toggleBuiltinTheme = (themeType: BuiltinThemeType) => {
   // 找到对应的主题预设
   const theme = BUILT_IN_THEME_PRESETS.find((item) => item.type === themeType)
-  
+
   // 如果找到主题，自动同步 colorPrimary（类似 builtin.vue 的实现）
   if (theme) {
     // 根据当前是否为暗色模式，获取对应的颜色
     const primaryColor = isDark.value
       ? theme.darkPrimaryColor || theme.primaryColor
       : theme.primaryColor
-    
+
     // 获取最终使用的颜色（优先使用 primaryColor，否则使用 color）
     const colorPrimaryToUse = primaryColor || theme.color
-    
+
     // 如果主题不是 custom，或者有颜色值，则同时更新 builtinType 和 colorPrimary
     if (themeType !== 'custom' || colorPrimaryToUse) {
       preferencesManager.updatePreferences({
@@ -111,7 +111,9 @@ const colorVariables = [
       </div>
 
       <!-- 主题切换区域 -->
-      <section class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6">
+      <section
+        class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6"
+      >
         <h2 class="text-2xl font-semibold mb-4">主题切换</h2>
         <div class="space-y-4">
           <!-- 主题模式切换 -->
@@ -163,7 +165,9 @@ const colorVariables = [
       </section>
 
       <!-- 颜色系统测试 -->
-      <section class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6">
+      <section
+        class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6"
+      >
         <h2 class="text-2xl font-semibold mb-4">颜色系统</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div
@@ -174,19 +178,25 @@ const colorVariables = [
           >
             <div
               class="text-sm font-medium mb-1"
-              :style="{ color: `hsl(var(${color.var === '--background' || color.var === '--card' ? '--foreground' : color.var + '-foreground'}))` }"
+              :style="{
+                color: `hsl(var(${color.var === '--background' || color.var === '--card' ? '--foreground' : color.var + '-foreground'}))`
+              }"
             >
               {{ color.name }}
             </div>
             <div
               class="text-xs opacity-80"
-              :style="{ color: `hsl(var(${color.var === '--background' || color.var === '--card' ? '--foreground' : color.var + '-foreground'}))` }"
+              :style="{
+                color: `hsl(var(${color.var === '--background' || color.var === '--card' ? '--foreground' : color.var + '-foreground'}))`
+              }"
             >
               {{ color.description }}
             </div>
             <div
               class="text-xs mt-2 font-mono"
-              :style="{ color: `hsl(var(${color.var === '--background' || color.var === '--card' ? '--foreground' : color.var + '-foreground'}))` }"
+              :style="{
+                color: `hsl(var(${color.var === '--background' || color.var === '--card' ? '--foreground' : color.var + '-foreground'}))`
+              }"
             >
               {{ color.var }}
             </div>
@@ -195,7 +205,9 @@ const colorVariables = [
       </section>
 
       <!-- 按钮示例 -->
-      <section class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6">
+      <section
+        class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6"
+      >
         <h2 class="text-2xl font-semibold mb-4">按钮示例</h2>
         <div class="flex flex-wrap gap-4">
           <button
@@ -232,7 +244,9 @@ const colorVariables = [
       </section>
 
       <!-- 卡片示例 -->
-      <section class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6">
+      <section
+        class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6"
+      >
         <h2 class="text-2xl font-semibold mb-4">卡片示例</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div
@@ -249,7 +263,9 @@ const colorVariables = [
       </section>
 
       <!-- 输入框示例 -->
-      <section class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6">
+      <section
+        class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6"
+      >
         <h2 class="text-2xl font-semibold mb-4">输入框示例</h2>
         <div class="space-y-4 max-w-md">
           <div>
@@ -272,7 +288,9 @@ const colorVariables = [
       </section>
 
       <!-- 圆角和字体大小控制 -->
-      <section class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6">
+      <section
+        class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6"
+      >
         <h2 class="text-2xl font-semibold mb-4">设计Token控制</h2>
         <div class="space-y-6">
           <!-- 圆角控制 -->
@@ -285,7 +303,7 @@ const colorVariables = [
                 @click="updateRadius(radius)"
                 :class="[
                   'px-4 py-2 rounded-[var(--radius)] transition-colors',
-                  preferences.theme.radius === radius 
+                  preferences.theme.radius === radius
                     ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]'
                     : 'bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] hover:bg-[hsl(var(--accent))]'
                 ]"
@@ -335,7 +353,9 @@ const colorVariables = [
       </section>
 
       <!-- 状态展示 -->
-      <section class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6">
+      <section
+        class="bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-[var(--radius)] p-6"
+      >
         <h2 class="text-2xl font-semibold mb-4">当前状态</h2>
         <div class="space-y-2 text-sm font-mono bg-[hsl(var(--muted))] p-4 rounded-[var(--radius)]">
           <div>

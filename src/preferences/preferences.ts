@@ -119,11 +119,11 @@ class PreferenceManager {
    */
   private handleUpdates(updates: DeepPartial<Preferences>) {
     const { theme, app } = updates
-  // 如果 theme 对象存在且有属性变化，或者有 fontSize 变化
+    // 如果 theme 对象存在且有属性变化，或者有 fontSize 变化
     if (theme && (Object.keys(theme).length > 0 || Reflect.has(theme, 'fontSize'))) {
       updateCSSVariables(this.state)
     }
-  // 处理颜色模式（灰色、色弱）
+    // 处理颜色模式（灰色、色弱）
     if (app && (Reflect.has(app, 'colorGrayMode') || Reflect.has(app, 'colorWeakMode'))) {
       this.updateColorMode(this.state)
     }
