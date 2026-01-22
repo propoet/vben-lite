@@ -37,31 +37,31 @@ const toggleBuiltinTheme = (themeType: BuiltinThemeType) => {
   // 如果找到主题，自动同步 colorPrimary（类似 builtin.vue 的实现）
   if (theme) {
     // 根据当前是否为暗色模式，获取对应的颜色
-    // const primaryColor = isDark.value
-    //   ? theme.darkPrimaryColor || theme.primaryColor
-    //   : theme.primaryColor
+    const primaryColor = isDark.value
+      ? theme.darkPrimaryColor || theme.primaryColor
+      : theme.primaryColor
     
-    // // 获取最终使用的颜色（优先使用 primaryColor，否则使用 color）
-    // const colorPrimaryToUse = primaryColor || theme.color
+    // 获取最终使用的颜色（优先使用 primaryColor，否则使用 color）
+    const colorPrimaryToUse = primaryColor || theme.color
     
-    // // 如果主题不是 custom，或者有颜色值，则同时更新 builtinType 和 colorPrimary
-    // if (themeType !== 'custom' || colorPrimaryToUse) {
-    //   preferencesManager.updatePreferences({
-    //     theme: {
-    //       builtinType: themeType,
-    //       // 自动同步内置主题颜色到 colorPrimary
-    //       // colorPrimary: colorPrimaryToUse
-    //     }
-    //   })
-    // } else {
-    //   // custom 主题且没有颜色时，只更新 builtinType
-    //   preferencesManager.updatePreferences({
-    //     theme: { builtinType: themeType }
-    //   })
-    // }
-    preferencesManager.updatePreferences({
+    // 如果主题不是 custom，或者有颜色值，则同时更新 builtinType 和 colorPrimary
+    if (themeType !== 'custom' || colorPrimaryToUse) {
+      preferencesManager.updatePreferences({
+        theme: {
+          builtinType: themeType,
+          // 自动同步内置主题颜色到 colorPrimary
+          colorPrimary: colorPrimaryToUse
+        }
+      })
+    } else {
+      // custom 主题且没有颜色时，只更新 builtinType
+      preferencesManager.updatePreferences({
         theme: { builtinType: themeType }
       })
+    }
+    // preferencesManager.updatePreferences({
+    //     theme: { builtinType: themeType }
+    //   })
   } else {
     // 如果找不到主题，只更新 builtinType
     preferencesManager.updatePreferences({
