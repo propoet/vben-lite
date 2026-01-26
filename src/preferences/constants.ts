@@ -1,5 +1,5 @@
-import type { BuiltinThemeType } from './types'
-
+import type { BuiltinThemeType } from '#/types'
+import type { TimezoneOption } from '#/types'
 // 内置主题预设类型
 interface BuiltinThemePreset {
   color: string
@@ -85,3 +85,35 @@ export const COLOR_PRESETS = [...BUILT_IN_THEME_PRESETS].slice(0, 7)
 export { BUILT_IN_THEME_PRESETS }
 
 export type { BuiltinThemePreset }
+
+/**
+ * 默认时区选项
+ * 定义了常用的时区选项，用于时区选择器
+ */
+export const DEFAULT_TIME_ZONE_OPTIONS: TimezoneOption[] = [
+  {
+    offset: -5,
+    timezone: 'America/New_York',
+    label: 'America/New_York(GMT-5)'
+  },
+  {
+    offset: 0,
+    timezone: 'Europe/London',
+    label: 'Europe/London(GMT0)'
+  },
+  {
+    offset: 8,
+    timezone: 'Asia/Shanghai',
+    label: 'Asia/Shanghai(GMT+8)'
+  },
+  {
+    offset: 9,
+    timezone: 'Asia/Tokyo',
+    label: 'Asia/Tokyo(GMT+9)'
+  },
+  {
+    offset: 9,
+    timezone: 'Asia/Seoul',
+    label: 'Asia/Seoul(GMT+9)'
+  }
+]

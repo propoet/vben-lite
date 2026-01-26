@@ -20,7 +20,20 @@ export default defineConfigWithVueTs(
   {
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-unsafe-function-type': 'off'
+      '@typescript-eslint/no-unsafe-function-type': 'off',
+      // 允许使用下划线前缀表示未使用的变量
+      // 例如：const [_key, value] = entries 表示 key 是故意不使用的
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          // 函数参数：允许 _param 或 _ 开头的参数
+          argsIgnorePattern: '^_',
+          // 变量：允许 _variable 或 _ 开头的变量
+          varsIgnorePattern: '^_',
+          // catch 错误：允许 _error 或 _ 开头的错误变量
+          caughtErrorsIgnorePattern: '^_'
+        }
+      ]
     }
   }
 )
