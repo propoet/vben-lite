@@ -188,7 +188,6 @@ function setI18nLanguage(locale: Locale) {
  */
 async function setupI18n(app: App, options: LocaleSetupOptions = {}) {
   const { defaultLocale = 'zh-CN' } = options;
-  debugger
   // 设置加载额外消息的函数
   // 可以用于加载第三方组件库的语言包（如 Element Plus、Dayjs）
   loadMessages = options.loadMessages || (async () => ({}));

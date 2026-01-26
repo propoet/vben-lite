@@ -95,6 +95,32 @@ const testWithParams = [
     params: ['6'],
   },
 ];
+
+/**
+ * Element Plus 分页组件测试数据
+ */
+const pagination = ref({
+  currentPage: 1,
+  pageSize: 10,
+  total: 100,
+});
+
+/**
+ * 处理分页变化
+ */
+function handlePageChange(page: number) {
+  pagination.value.currentPage = page;
+  console.log('当前页:', page);
+}
+
+/**
+ * 处理每页条数变化
+ */
+function handleSizeChange(size: number) {
+  pagination.value.pageSize = size;
+  pagination.value.currentPage = 1; // 重置到第一页
+  console.log('每页条数:', size);
+}
 </script>
 
 <template>
@@ -288,6 +314,64 @@ const testWithParams = [
             <p class="text-sm">
               {{ $t('ui.actionMessage.deleteConfirm', ['用户数据']) }}
             </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Element Plus 分页组件国际化测试 -->
+      <div class="card p-6 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))]">
+        <h2 class="text-2xl font-semibold mb-4">Element Plus 分页组件国际化测试</h2>
+        <div class="space-y-4">
+          <p class="text-sm text-muted-foreground">
+            切换语言后，分页组件的文本（如"共 X 条"、"每页显示"、"条/页"等）会自动更新
+          </p>
+          
+          <!-- 基础分页 -->
+          <div class="space-y-2">
+            <h3 class="font-semibold">基础分页</h3>
+            <el-pagination
+              v-model:current-page="pagination.currentPage"
+              v-model:page-size="pagination.pageSize"
+              :total="pagination.total"
+              :page-sizes="[10, 20, 50, 100]"
+              layout="total, sizes, prev, pager, next, jumper"
+              @current-change="handlePageChange"
+              @size-change="handleSizeChange"
+            />
+          </div>
+
+          <!-- 完整功能分页 -->
+          <div class="space-y-2">
+            <h3 class="font-semibold">完整功能分页（带总数和跳转）</h3>
+            <el-pagination
+              v-model:current-page="pagination.currentPage"
+              v-model:page-size="pagination.pageSize"
+              :total="pagination.total"
+              :page-sizes="[10, 20, 50, 100]"
+              layout="total, sizes, prev, pager, next, jumper"
+              background
+            />
+          </div>
+
+          <!-- 简单分页 -->
+          <div class="space-y-2">
+            <h3 class="font-semibold">简单分页</h3>
+            <el-pagination
+              v-model:current-page="pagination.currentPage"
+              :total="pagination.total"
+              :page-size="pagination.pageSize"
+              layout="prev, pager, next"
+            />
+          </div>
+
+          <!-- 分页信息显示 -->
+          <div class="p-4 rounded-lg bg-[hsl(var(--muted))]">
+            <div class="text-sm space-y-1">
+              <div>当前页: {{ pagination.currentPage }}</div>
+              <div>每页条数: {{ pagination.pageSize }}</div>
+              <div>总条数: {{ pagination.total }}</div>
+              <div>总页数: {{ Math.ceil(pagination.total / pagination.pageSize) }}</div>
+            </div>
           </div>
         </div>
       </div>
